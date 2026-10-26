@@ -155,7 +155,7 @@ comparar imputación, elegir el modelo (ROC-AUC) y fijar el umbral (máximo F2).
 | Referencia (clase mayoritaria) | 0,5000 | 0,5000 | 0,0668 | – | 0,00 % | 0,00 % | 0,0000 | **93,32 %** |
 | Regresión logística | 0,8528 | 0,8590 | 0,3903 | 0,084 | 69,18 % | 25,29 % | 0,3704 | 84,28 % |
 | Regresión logística (balanced) | 0,8545 | 0,8608 | 0,3929 | 0,560 | 68,53 % | 25,78 % | 0,3747 | 84,71 % |
-| **Random Forest** ✔ | **0,8643** | **0,8680** | **0,4014** | 0,108 | 69,18 % | **27,08 %** | **0,3893** | 85,49 % |
+| **Random Forest** | **0,8643** | **0,8680** | **0,4014** | 0,108 | 69,18 % | **27,08 %** | **0,3893** | 85,49 % |
 | Random Forest (balanced_subsample) | 0,8634 | 0,8666 | 0,3937 | 0,537 | 70,62 % | 25,88 % | 0,3788 | 84,52 % |
 
 Matriz de confusión del modelo seleccionado (prueba): **1 387** morosos detectados, **618** no detectados,
