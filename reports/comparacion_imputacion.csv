@@ -1,0 +1,5 @@
+modelo,estrategia,roc_auc_cv
+Regresión logística,solo mediana,0.8505646143763361
+Random Forest,solo mediana,0.8629433524289214
+Regresión logística,mediana + indicadores,0.8527949535758537
+Random Forest,mediana + indicadores,0.8636817816657453

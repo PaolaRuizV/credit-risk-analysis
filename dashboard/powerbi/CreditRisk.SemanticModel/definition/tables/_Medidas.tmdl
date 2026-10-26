@@ -1,0 +1,136 @@
+table _Medidas
+	lineageTag: 45340acb-6b36-5084-baf0-8aef90d59241
+
+	measure 'Total Clientes' = COUNTROWS ( cartera )
+		formatString: #,0
+		displayFolder: Cartera
+		lineageTag: 09d58a1f-3e06-51b3-b256-0efa82f09431
+
+	measure 'Clientes con Mora' = CALCULATE ( COUNTROWS ( cartera ), cartera[SeriousDlqin2yrs] = 1 )
+		formatString: #,0
+		displayFolder: Cartera
+		lineageTag: 60539b41-6f33-5592-9f65-745d61397ab0
+
+	measure 'Tasa de Mora' = DIVIDE ( [Clientes con Mora], [Total Clientes] )
+		formatString: 0.00%
+		displayFolder: Cartera
+		lineageTag: 73dce1af-213a-5cca-bb1a-7a74390892a2
+
+	measure 'Ingreso Promedio' = AVERAGE ( cartera[ingreso_mensual] )
+		formatString: #,0
+		displayFolder: Cartera
+		lineageTag: c484f18a-767b-5679-b3b1-09106f2020ff
+
+	measure 'Ingreso Mediano' = MEDIAN ( cartera[ingreso_mensual] )
+		formatString: #,0
+		displayFolder: Cartera
+		lineageTag: e9021e7c-abc0-522a-8e10-dcbf3492a908
+
+	measure 'Clientes sin Ingreso' = CALCULATE ( COUNTROWS ( cartera ), cartera[ingreso_faltante] = 1 )
+		formatString: #,0
+		displayFolder: Cartera
+		lineageTag: d9808c1a-4fc5-5cd7-8a42-83a3c37e00bf
+
+	measure '% Clientes sin Ingreso' = DIVIDE ( [Clientes sin Ingreso], [Total Clientes] )
+		formatString: 0.00%
+		displayFolder: Cartera
+		lineageTag: db82f56e-3419-577a-a5c7-57588ed52870
+
+	measure 'Diferencia vs Media' = [Tasa de Mora] - CALCULATE ( [Tasa de Mora], REMOVEFILTERS ( cartera ) )
+		formatString: +0.00%;-0.00%;0.00%
+		displayFolder: Cartera
+		lineageTag: d0a5dbdd-1464-5507-880d-03bdb035c5f1
+
+	measure 'Clientes Evaluados' = COUNTROWS ( datos_dashboard )
+		formatString: #,0
+		displayFolder: Modelo
+		lineageTag: 1427dfe4-ac84-5dc1-a6eb-118eb3f99575
+
+	measure 'Mora Observada' = CALCULATE ( COUNTROWS ( datos_dashboard ), datos_dashboard[SeriousDlqin2yrs] = 1 )
+		formatString: #,0
+		displayFolder: Modelo
+		lineageTag: 7d58e91f-6abb-5891-8ee1-90bb5a9a48ed
+
+	measure 'Tasa de Mora por Segmento' = DIVIDE ( [Mora Observada], [Clientes Evaluados] )
+		formatString: 0.00%
+		displayFolder: Modelo
+		lineageTag: b0be90b3-1a24-5462-b760-f18057a86b04
+
+	measure 'Probabilidad Media Estimada' = AVERAGE ( datos_dashboard[probabilidad_mora] )
+		formatString: 0.00%
+		displayFolder: Modelo
+		lineageTag: 2253fe1c-c9b0-5e3a-b2a2-161a0559c3a0
+
+	measure 'Clientes en Alerta' = CALCULATE ( COUNTROWS ( datos_dashboard ), datos_dashboard[prediccion_mora] = 1 )
+		formatString: #,0
+		displayFolder: Modelo
+		lineageTag: a0fc18c5-4044-539b-bd63-5d92ade3c9cc
+
+	measure '% de la Mora Capturada' = DIVIDE ( [Mora Observada], CALCULATE ( [Mora Observada], REMOVEFILTERS ( datos_dashboard[nivel_riesgo] ) ) )
+		formatString: 0.00%
+		displayFolder: Modelo
+		lineageTag: 8eb83a8a-6712-5173-bf5d-7fb14369b7bc
+
+	measure VP = CALCULATE ( COUNTROWS ( datos_dashboard ), datos_dashboard[resultado_clasificacion] = "Verdadero positivo" )
+		formatString: #,0
+		displayFolder: Modelo
+		lineageTag: d165433d-3ff9-54eb-a9e0-2ca4968ba52a
+
+	measure FP = CALCULATE ( COUNTROWS ( datos_dashboard ), datos_dashboard[resultado_clasificacion] = "Falso positivo" )
+		formatString: #,0
+		displayFolder: Modelo
+		lineageTag: 6e9d5c95-a9d2-5a29-9874-37896a504b4f
+
+	measure FN = CALCULATE ( COUNTROWS ( datos_dashboard ), datos_dashboard[resultado_clasificacion] = "Falso negativo" )
+		formatString: #,0
+		displayFolder: Modelo
+		lineageTag: 162c23cf-12a7-58ec-8763-25264cc8d3d3
+
+	measure VN = CALCULATE ( COUNTROWS ( datos_dashboard ), datos_dashboard[resultado_clasificacion] = "Verdadero negativo" )
+		formatString: #,0
+		displayFolder: Modelo
+		lineageTag: 5c53d318-87ed-5805-93bb-6ac300758432
+
+	measure 'Recall Modelo' = DIVIDE ( [VP], [VP] + [FN] )
+		formatString: 0.00%
+		displayFolder: Modelo
+		lineageTag: b634f1de-847d-5ce5-8969-b85cdf1292a5
+
+	measure 'Precision Modelo' = DIVIDE ( [VP], [VP] + [FP] )
+		formatString: 0.00%
+		displayFolder: Modelo
+		lineageTag: f487a553-6024-5b02-be3a-dcb875d603f2
+
+	measure 'Modelo Seleccionado' = CALCULATE ( SELECTEDVALUE ( metricas_modelo[modelo] ), metricas_modelo[seleccionado] = 1 )
+		displayFolder: Modelo
+		lineageTag: b20a6b9f-51a0-5375-b046-547f048d5f29
+
+	measure 'ROC-AUC Prueba' = CALCULATE ( MAX ( metricas_modelo[roc_auc] ), metricas_modelo[seleccionado] = 1 )
+		formatString: 0.000
+		displayFolder: Modelo
+		lineageTag: 8972a0ed-3b55-58b5-8904-c35d7312927a
+
+	measure 'Umbral Operativo' = CALCULATE ( MAX ( metricas_modelo[umbral] ), metricas_modelo[seleccionado] = 1 )
+		formatString: 0.000
+		displayFolder: Modelo
+		lineageTag: ec262ec6-38e0-5786-a732-a742d933d356
+
+	column Columna
+		dataType: string
+		isHidden
+		lineageTag: 606e4dc2-40e1-5930-8f7a-8dd155cfa85d
+		summarizeBy: none
+		sourceColumn: Columna
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Medidas = m
+		mode: import
+		source =
+				let
+				    Origen = #table(type table [Columna = text], {})
+				in
+				    Origen
+
+	annotation PBI_ResultType = Table
+

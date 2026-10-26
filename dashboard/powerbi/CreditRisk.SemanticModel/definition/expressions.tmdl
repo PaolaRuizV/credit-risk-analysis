@@ -1,0 +1,5 @@
+expression RutaDatos = "C:\Users\paola\Downloads\credit-risk-analysis\dashboard\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: a8d35091-6cc5-5b82-b6a5-3db6295ee4fa
+
+	annotation PBI_ResultType = Text
+

@@ -1,0 +1,130 @@
+table metricas_modelo
+	lineageTag: 80a5e7c7-dcb4-5777-8ae8-960902f7d9ff
+
+	column modelo
+		dataType: string
+		lineageTag: 37eb8c24-f05e-5d08-8fb2-1fa23075f6f0
+		sourceColumn: modelo
+
+		annotation SummarizationSetBy = User
+
+	column seleccionado
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b2bf412-f512-5ead-9731-3af377585f24
+		summarizeBy: none
+		sourceColumn: seleccionado
+
+		annotation SummarizationSetBy = User
+
+	column umbral
+		dataType: double
+		formatString: 0.0000
+		lineageTag: f8860618-1cd4-5b8a-bbce-76da95c18c12
+		summarizeBy: none
+		sourceColumn: umbral
+
+		annotation SummarizationSetBy = User
+
+	column roc_auc
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 3d0acdd7-fcfe-59ea-8e18-8c9df84ca973
+		summarizeBy: none
+		sourceColumn: roc_auc
+
+		annotation SummarizationSetBy = User
+
+	column average_precision
+		dataType: double
+		formatString: 0.0000
+		lineageTag: f66bd1d4-27c2-5260-b173-79c322ef0042
+		summarizeBy: none
+		sourceColumn: average_precision
+
+		annotation SummarizationSetBy = User
+
+	column recall
+		dataType: double
+		formatString: 0.0000
+		lineageTag: fa55660b-a963-514c-a266-64a7e28b0e16
+		summarizeBy: none
+		sourceColumn: recall
+
+		annotation SummarizationSetBy = User
+
+	column precision
+		dataType: double
+		formatString: 0.0000
+		lineageTag: c6f69f44-226c-53db-b56e-a796b7414a56
+		summarizeBy: none
+		sourceColumn: precision
+
+		annotation SummarizationSetBy = User
+
+	column f1
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 91f30b61-b845-5431-8ccd-553370d9ec53
+		summarizeBy: none
+		sourceColumn: f1
+
+		annotation SummarizationSetBy = User
+
+	column accuracy
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 7095a911-56e0-57f0-9e2d-ec5864b881f0
+		summarizeBy: none
+		sourceColumn: accuracy
+
+		annotation SummarizationSetBy = User
+
+	column tn
+		dataType: int64
+		formatString: 0
+		lineageTag: 76d592f9-73b9-5908-b6ce-edcfbd9fd782
+		summarizeBy: sum
+		sourceColumn: tn
+
+		annotation SummarizationSetBy = User
+
+	column fp
+		dataType: int64
+		formatString: 0
+		lineageTag: 7238808c-615f-56ca-b715-7ba116aa0ff1
+		summarizeBy: sum
+		sourceColumn: fp
+
+		annotation SummarizationSetBy = User
+
+	column fn
+		dataType: int64
+		formatString: 0
+		lineageTag: 000363af-bd17-51e5-8bb7-4d55dd625663
+		summarizeBy: sum
+		sourceColumn: fn
+
+		annotation SummarizationSetBy = User
+
+	column tp
+		dataType: int64
+		formatString: 0
+		lineageTag: f5f88c62-dad5-55c5-9734-820c5d1d6f30
+		summarizeBy: sum
+		sourceColumn: tp
+
+		annotation SummarizationSetBy = User
+
+	partition metricas_modelo = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "metricas_modelo.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"modelo", type text}, {"seleccionado", Int64.Type}, {"umbral", type number}, {"roc_auc", type number}, {"average_precision", type number}, {"recall", type number}, {"precision", type number}, {"f1", type number}, {"accuracy", type number}, {"tn", Int64.Type}, {"fp", Int64.Type}, {"fn", Int64.Type}, {"tp", Int64.Type}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

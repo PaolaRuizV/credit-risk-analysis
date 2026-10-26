@@ -1,0 +1,13 @@
+# Probado con Python 3.12 (compatible con Python 3.11+)
+pandas==3.1.0
+numpy==2.5.4
+matplotlib==3.11.2
+seaborn==0.13.2
+scikit-learn==1.9.1
+joblib==1.6.0
+xlrd==2.0.2
+tabulate==0.10.0
+jupyter==1.1.1
+nbconvert==7.17.2
+ipykernel==7.4.0
+pytest==9.1.1

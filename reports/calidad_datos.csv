@@ -1,0 +1,12 @@
+columna,tipo,nulos,pct_nulos,valores_unicos,minimo,mediana,p99,maximo
+SeriousDlqin2yrs,int64,0,0.0,2,0.0,0.0,1.0,1.0
+RevolvingUtilizationOfUnsecuredLines,float64,0,0.0,125728,0.0,0.154180737,1.0929557681400022,50708.0
+age,int64,0,0.0,86,0.0,52.0,87.0,109.0
+NumberOfTime30-59DaysPastDueNotWorse,int64,0,0.0,16,0.0,0.0,4.0,98.0
+DebtRatio,float64,0,0.0,114194,0.0,0.366507841,4979.040000000037,329664.0
+MonthlyIncome,float64,29731,19.82,13594,0.0,5400.0,25000.0,3008750.0
+NumberOfOpenCreditLinesAndLoans,int64,0,0.0,58,0.0,8.0,24.0,58.0
+NumberOfTimes90DaysLate,int64,0,0.0,19,0.0,0.0,3.0,98.0
+NumberRealEstateLoansOrLines,int64,0,0.0,28,0.0,1.0,4.0,54.0
+NumberOfTime60-89DaysPastDueNotWorse,int64,0,0.0,13,0.0,0.0,2.0,98.0
+NumberOfDependents,float64,3924,2.62,13,0.0,0.0,4.0,20.0

@@ -1,0 +1,245 @@
+table datos_dashboard
+	lineageTag: 125c4096-12ee-53a4-b5a0-954b1e5c2f79
+
+	column id_cliente
+		dataType: int64
+		formatString: 0
+		lineageTag: 4255766f-523f-5ed6-804b-85a18c3ba5a0
+		summarizeBy: none
+		sourceColumn: id_cliente
+
+		annotation SummarizationSetBy = User
+
+	column probabilidad_mora
+		dataType: double
+		formatString: 0.0000
+		lineageTag: c1b7bdc6-1785-5731-a232-f795120ec3c0
+		summarizeBy: none
+		sourceColumn: probabilidad_mora
+
+		annotation SummarizationSetBy = User
+
+	column prediccion_mora
+		dataType: int64
+		formatString: 0
+		lineageTag: ef1724d1-6440-54b2-8e96-7d56f4648baa
+		summarizeBy: sum
+		sourceColumn: prediccion_mora
+
+		annotation SummarizationSetBy = User
+
+	column nivel_riesgo
+		dataType: string
+		lineageTag: bcfe013d-2b8d-5a48-a742-23f54bd26e67
+		sourceColumn: nivel_riesgo
+
+		annotation SummarizationSetBy = User
+
+	column SeriousDlqin2yrs
+		dataType: int64
+		formatString: 0
+		lineageTag: c3e9915c-1e9c-56a3-965b-2d681b4d08be
+		summarizeBy: sum
+		sourceColumn: SeriousDlqin2yrs
+
+		annotation SummarizationSetBy = User
+
+	column utilizacion_credito
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 823f3ef6-5c07-5bb6-a557-2fcdc7b094d4
+		summarizeBy: none
+		sourceColumn: utilizacion_credito
+
+		annotation SummarizationSetBy = User
+
+	column edad
+		dataType: int64
+		formatString: 0
+		lineageTag: 3e7cff76-03ef-5bb3-852d-7e4b895c7199
+		summarizeBy: none
+		sourceColumn: edad
+
+		annotation SummarizationSetBy = User
+
+	column atrasos_30_59
+		dataType: int64
+		formatString: 0
+		lineageTag: 71e955b9-967f-5455-b3ca-997610cc044e
+		summarizeBy: sum
+		sourceColumn: atrasos_30_59
+
+		annotation SummarizationSetBy = User
+
+	column ratio_deuda
+		dataType: double
+		formatString: 0.0000
+		lineageTag: bde99b9c-e702-57e2-b81c-ba525d21728d
+		summarizeBy: none
+		sourceColumn: ratio_deuda
+
+		annotation SummarizationSetBy = User
+
+	column ingreso_mensual
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 69e96ea5-1095-56f9-b910-00022c519989
+		summarizeBy: none
+		sourceColumn: ingreso_mensual
+
+		annotation SummarizationSetBy = User
+
+	column lineas_credito_abiertas
+		dataType: int64
+		formatString: 0
+		lineageTag: cd8cbbad-71f2-58f9-bd3b-f3445d870ff7
+		summarizeBy: sum
+		sourceColumn: lineas_credito_abiertas
+
+		annotation SummarizationSetBy = User
+
+	column atrasos_90_mas
+		dataType: int64
+		formatString: 0
+		lineageTag: f94cc8bc-793f-516a-baa6-9b8f0f46cef0
+		summarizeBy: sum
+		sourceColumn: atrasos_90_mas
+
+		annotation SummarizationSetBy = User
+
+	column prestamos_inmobiliarios
+		dataType: int64
+		formatString: 0
+		lineageTag: 96693480-5cfd-5d1a-8d16-e68d004e601e
+		summarizeBy: sum
+		sourceColumn: prestamos_inmobiliarios
+
+		annotation SummarizationSetBy = User
+
+	column atrasos_60_89
+		dataType: int64
+		formatString: 0
+		lineageTag: eef7b5ff-4179-5d40-9de0-ee75bc054331
+		summarizeBy: sum
+		sourceColumn: atrasos_60_89
+
+		annotation SummarizationSetBy = User
+
+	column dependientes
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 5c217bda-c0b7-575a-a2e6-61cfaa02c7cf
+		summarizeBy: none
+		sourceColumn: dependientes
+
+		annotation SummarizationSetBy = User
+
+	column rango_edad
+		dataType: string
+		lineageTag: 58f4e39d-8b2d-5cf1-9f8a-3721225ec8cc
+		sourceColumn: rango_edad
+
+		annotation SummarizationSetBy = User
+
+	column rango_atrasos_30_59
+		dataType: string
+		lineageTag: 4402291b-f67a-5878-aa11-84c55342e54f
+		sourceColumn: rango_atrasos_30_59
+
+		annotation SummarizationSetBy = User
+
+	column rango_atrasos_90_mas
+		dataType: string
+		lineageTag: 1aaf9772-c13b-533a-afdc-81f0ab164a28
+		sourceColumn: rango_atrasos_90_mas
+
+		annotation SummarizationSetBy = User
+
+	column tramo_utilizacion
+		dataType: string
+		lineageTag: dfba1d50-ceff-58ab-8d25-c46090ccbafa
+		sourceColumn: tramo_utilizacion
+		sortByColumn: orden_tramo_utilizacion
+
+		annotation SummarizationSetBy = User
+
+	column orden_tramo_utilizacion
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c6d1a9d1-4df9-586c-b3ba-81857543954b
+		summarizeBy: none
+		sourceColumn: orden_tramo_utilizacion
+
+		annotation SummarizationSetBy = User
+
+	column ingreso_faltante
+		dataType: int64
+		formatString: 0
+		lineageTag: 8cfd4e89-3873-5e66-a435-eddbb1d47980
+		summarizeBy: sum
+		sourceColumn: ingreso_faltante
+
+		annotation SummarizationSetBy = User
+
+	column estado_ingreso
+		dataType: string
+		lineageTag: c43fda12-42a2-5031-b67b-348d2b414b1b
+		sourceColumn: estado_ingreso
+
+		annotation SummarizationSetBy = User
+
+	column grupo_dependientes
+		dataType: string
+		lineageTag: b782f80b-8d65-587e-a4cc-960d361fea10
+		sourceColumn: grupo_dependientes
+
+		annotation SummarizationSetBy = User
+
+	column estado_mora
+		dataType: string
+		lineageTag: a8108e27-541c-504f-828b-ad3cf6f14220
+		sourceColumn: estado_mora
+
+		annotation SummarizationSetBy = User
+
+	column resultado_clasificacion
+		dataType: string
+		lineageTag: 701c4559-6b2d-51ec-bddc-3436950939ba
+		sourceColumn: resultado_clasificacion
+
+		annotation SummarizationSetBy = User
+
+	column alerta_modelo
+		dataType: string
+		lineageTag: b128d5c2-cf8b-59f2-a561-28954d904175
+		sourceColumn: alerta_modelo
+
+		annotation SummarizationSetBy = User
+
+	column tramo_probabilidad
+		dataType: string
+		lineageTag: d540a0fb-4721-533c-a3d4-91e68c0fd101
+		sourceColumn: tramo_probabilidad
+
+		annotation SummarizationSetBy = User
+
+	column modelo
+		dataType: string
+		lineageTag: 51cbfee4-e55b-5163-937f-c48c45722875
+		sourceColumn: modelo
+
+		annotation SummarizationSetBy = User
+
+	partition datos_dashboard = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "datos_dashboard.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"id_cliente", Int64.Type}, {"probabilidad_mora", type number}, {"prediccion_mora", Int64.Type}, {"nivel_riesgo", type text}, {"SeriousDlqin2yrs", Int64.Type}, {"utilizacion_credito", type number}, {"edad", Int64.Type}, {"atrasos_30_59", Int64.Type}, {"ratio_deuda", type number}, {"ingreso_mensual", type number}, {"lineas_credito_abiertas", Int64.Type}, {"atrasos_90_mas", Int64.Type}, {"prestamos_inmobiliarios", Int64.Type}, {"atrasos_60_89", Int64.Type}, {"dependientes", type number}, {"rango_edad", type text}, {"rango_atrasos_30_59", type text}, {"rango_atrasos_90_mas", type text}, {"tramo_utilizacion", type text}, {"orden_tramo_utilizacion", Int64.Type}, {"ingreso_faltante", Int64.Type}, {"estado_ingreso", type text}, {"grupo_dependientes", type text}, {"estado_mora", type text}, {"resultado_clasificacion", type text}, {"alerta_modelo", type text}, {"tramo_probabilidad", type text}, {"modelo", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

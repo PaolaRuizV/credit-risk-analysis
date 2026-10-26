@@ -1,0 +1,41 @@
+{
+  "modelo_seleccionado": "random_forest",
+  "descripcion_modelo": "Random Forest",
+  "umbral_clasificacion": 0.10772869452238389,
+  "criterio_umbral": "máximo F2 en predicciones out-of-fold del entrenamiento",
+  "cortes_nivel_riesgo": [
+    0.0,
+    0.06684166666666666,
+    0.10772869452238389,
+    0.5,
+    1.0
+  ],
+  "etiquetas_nivel_riesgo": [
+    "1. Bajo",
+    "2. Medio",
+    "3. Alto",
+    "4. Muy alto"
+  ],
+  "tasa_base_entrenamiento": 0.06684166666666666,
+  "predictoras": [
+    "RevolvingUtilizationOfUnsecuredLines",
+    "age",
+    "NumberOfTime30-59DaysPastDueNotWorse",
+    "DebtRatio",
+    "MonthlyIncome",
+    "NumberOfOpenCreditLinesAndLoans",
+    "NumberOfTimes90DaysLate",
+    "NumberRealEstateLoansOrLines",
+    "NumberOfTime60-89DaysPastDueNotWorse",
+    "NumberOfDependents",
+    "ingreso_faltante",
+    "dependientes_faltante",
+    "codigo_especial_atraso",
+    "utilizacion_extrema"
+  ],
+  "semilla": 42,
+  "proporcion_prueba": 0.2,
+  "n_pliegues_cv": 5,
+  "version_scikit_learn": "1.9.1",
+  "fecha_entrenamiento_utc": "2026-10-26T03:23:17+00:00"
+}

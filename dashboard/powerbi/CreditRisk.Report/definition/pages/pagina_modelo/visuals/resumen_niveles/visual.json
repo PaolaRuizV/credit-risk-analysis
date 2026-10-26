@@ -1,0 +1,117 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "name": "resumen_niveles",
+  "position": {
+    "x": 890,
+    "y": 462,
+    "z": 11000,
+    "width": 370,
+    "height": 250,
+    "tabOrder": 11000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "datos_dashboard"
+                    }
+                  },
+                  "Property": "nivel_riesgo"
+                }
+              },
+              "queryRef": "datos_dashboard.nivel_riesgo",
+              "nativeQueryRef": "nivel_riesgo",
+              "displayName": "Nivel"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Clientes Evaluados"
+                }
+              },
+              "queryRef": "_Medidas.Clientes Evaluados",
+              "nativeQueryRef": "Clientes Evaluados",
+              "displayName": "Clientes"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Tasa de Mora por Segmento"
+                }
+              },
+              "queryRef": "_Medidas.Tasa de Mora por Segmento",
+              "nativeQueryRef": "Tasa de Mora por Segmento",
+              "displayName": "Tasa de mora"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "% de la Mora Capturada"
+                }
+              },
+              "queryRef": "_Medidas.% de la Mora Capturada",
+              "nativeQueryRef": "% de la Mora Capturada",
+              "displayName": "% de la mora"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Resumen por nivel de riesgo'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1B2A41'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

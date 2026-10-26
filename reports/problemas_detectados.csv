@@ -1,0 +1,15 @@
+,filas
+filas,150000
+columnas,11
+ids_duplicados,0
+filas_duplicadas_sin_id,609
+MonthlyIncome_nulo,29731
+NumberOfDependents_nulo,3924
+age_menor_18,1
+age_igual_0,1
+atraso_codigo_96_98,269
+utilizacion_mayor_1,3321
+utilizacion_mayor_10,241
+debtratio_mayor_1,35137
+debtratio_mayor_1_con_ingreso_nulo,27904
+MonthlyIncome_igual_0,1634

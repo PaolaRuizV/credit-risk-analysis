@@ -1,0 +1,192 @@
+table cartera
+	lineageTag: f819771a-420e-5ea7-81a6-6b669c594eaf
+
+	column id_cliente
+		dataType: int64
+		formatString: 0
+		lineageTag: 47445e11-f7c6-5cd0-80a7-3ec8e68fa11b
+		summarizeBy: none
+		sourceColumn: id_cliente
+
+		annotation SummarizationSetBy = User
+
+	column SeriousDlqin2yrs
+		dataType: int64
+		formatString: 0
+		lineageTag: 94df7c4a-03a3-5d0a-89b4-b8b9ed2e23d8
+		summarizeBy: sum
+		sourceColumn: SeriousDlqin2yrs
+
+		annotation SummarizationSetBy = User
+
+	column utilizacion_credito
+		dataType: double
+		formatString: 0.0000
+		lineageTag: e0362d03-1da3-519d-b106-a6b9fd0e6541
+		summarizeBy: none
+		sourceColumn: utilizacion_credito
+
+		annotation SummarizationSetBy = User
+
+	column edad
+		dataType: int64
+		formatString: 0
+		lineageTag: f6941c06-b87e-5e09-9c08-106e12cf5ecf
+		summarizeBy: none
+		sourceColumn: edad
+
+		annotation SummarizationSetBy = User
+
+	column atrasos_30_59
+		dataType: int64
+		formatString: 0
+		lineageTag: ef5c7864-3c92-5b9a-8799-fb92748ed2dd
+		summarizeBy: sum
+		sourceColumn: atrasos_30_59
+
+		annotation SummarizationSetBy = User
+
+	column ratio_deuda
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 0ed7fe29-183a-53e8-96e9-cc2ef06e84c3
+		summarizeBy: none
+		sourceColumn: ratio_deuda
+
+		annotation SummarizationSetBy = User
+
+	column ingreso_mensual
+		dataType: double
+		formatString: 0.0000
+		lineageTag: 908e3edb-45e5-5ea9-ad68-45ab584fecf5
+		summarizeBy: none
+		sourceColumn: ingreso_mensual
+
+		annotation SummarizationSetBy = User
+
+	column lineas_credito_abiertas
+		dataType: int64
+		formatString: 0
+		lineageTag: d4e7bcf2-fe93-5543-ab79-6642e4bd10c7
+		summarizeBy: sum
+		sourceColumn: lineas_credito_abiertas
+
+		annotation SummarizationSetBy = User
+
+	column atrasos_90_mas
+		dataType: int64
+		formatString: 0
+		lineageTag: 3f148d47-8f71-5a9e-803c-2fc7135f7566
+		summarizeBy: sum
+		sourceColumn: atrasos_90_mas
+
+		annotation SummarizationSetBy = User
+
+	column prestamos_inmobiliarios
+		dataType: int64
+		formatString: 0
+		lineageTag: d8d7146e-d6d5-541a-92a9-4c29a51088f7
+		summarizeBy: sum
+		sourceColumn: prestamos_inmobiliarios
+
+		annotation SummarizationSetBy = User
+
+	column atrasos_60_89
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d2bdd92-3e7d-57d9-a8d1-0dc34b8ed0d6
+		summarizeBy: sum
+		sourceColumn: atrasos_60_89
+
+		annotation SummarizationSetBy = User
+
+	column dependientes
+		dataType: double
+		formatString: 0.0000
+		lineageTag: e66112e3-86c6-5495-8cdd-3ba4336b6d14
+		summarizeBy: none
+		sourceColumn: dependientes
+
+		annotation SummarizationSetBy = User
+
+	column rango_edad
+		dataType: string
+		lineageTag: 62ab7ee1-ad9e-589a-a8c4-d08e7ae23e3b
+		sourceColumn: rango_edad
+
+		annotation SummarizationSetBy = User
+
+	column rango_atrasos_30_59
+		dataType: string
+		lineageTag: b97bceef-fd63-533f-a429-44ed9a2a41f3
+		sourceColumn: rango_atrasos_30_59
+
+		annotation SummarizationSetBy = User
+
+	column rango_atrasos_90_mas
+		dataType: string
+		lineageTag: 3d6008ea-9515-51ed-a25d-3c689d8e1d44
+		sourceColumn: rango_atrasos_90_mas
+
+		annotation SummarizationSetBy = User
+
+	column tramo_utilizacion
+		dataType: string
+		lineageTag: 27627b2c-2512-57a9-852b-f7cd3c6bad9f
+		sourceColumn: tramo_utilizacion
+		sortByColumn: orden_tramo_utilizacion
+
+		annotation SummarizationSetBy = User
+
+	column orden_tramo_utilizacion
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: d2c7d02c-1d0f-59eb-bb5b-cc344654e35a
+		summarizeBy: none
+		sourceColumn: orden_tramo_utilizacion
+
+		annotation SummarizationSetBy = User
+
+	column ingreso_faltante
+		dataType: int64
+		formatString: 0
+		lineageTag: 9cb78025-729d-52e5-8475-57e0ab7a9fa6
+		summarizeBy: sum
+		sourceColumn: ingreso_faltante
+
+		annotation SummarizationSetBy = User
+
+	column estado_ingreso
+		dataType: string
+		lineageTag: 6ba9768a-092c-5a9e-9807-587ceb2be65f
+		sourceColumn: estado_ingreso
+
+		annotation SummarizationSetBy = User
+
+	column grupo_dependientes
+		dataType: string
+		lineageTag: 8abf71d1-d4dc-5e3c-9fbc-17ada0166cbc
+		sourceColumn: grupo_dependientes
+
+		annotation SummarizationSetBy = User
+
+	column estado_mora
+		dataType: string
+		lineageTag: b6d02625-afca-5d8d-a8b0-0a34df80db78
+		sourceColumn: estado_mora
+
+		annotation SummarizationSetBy = User
+
+	partition cartera = m
+		mode: import
+		source =
+				let
+				    Origen = Csv.Document(File.Contents(RutaDatos & "cartera.csv"), [Delimiter=",", Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Encabezados = Table.PromoteHeaders(Origen, [PromoteAllScalars=true]),
+				    Tipos = Table.TransformColumnTypes(Encabezados, {{"id_cliente", Int64.Type}, {"SeriousDlqin2yrs", Int64.Type}, {"utilizacion_credito", type number}, {"edad", Int64.Type}, {"atrasos_30_59", Int64.Type}, {"ratio_deuda", type number}, {"ingreso_mensual", type number}, {"lineas_credito_abiertas", Int64.Type}, {"atrasos_90_mas", Int64.Type}, {"prestamos_inmobiliarios", Int64.Type}, {"atrasos_60_89", Int64.Type}, {"dependientes", type number}, {"rango_edad", type text}, {"rango_atrasos_30_59", type text}, {"rango_atrasos_90_mas", type text}, {"tramo_utilizacion", type text}, {"orden_tramo_utilizacion", Int64.Type}, {"ingreso_faltante", Int64.Type}, {"estado_ingreso", type text}, {"grupo_dependientes", type text}, {"estado_mora", type text}}, "en-US")
+				in
+				    Tipos
+
+	annotation PBI_ResultType = Table
+

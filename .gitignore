@@ -1,0 +1,55 @@
+# --- Datos (Kaggle no permite redistribuirlos; ver README) ---
+data/*
+!data/README.md
+*.csv
+!dashboard/metricas_modelo.csv
+!reports/calidad_datos.csv
+!reports/problemas_detectados.csv
+!reports/comparacion_imputacion.csv
+!reports/metricas_prueba.csv
+*.xls
+*.xlsx
+*.db
+*.sqlite
+*.zip
+
+# --- Modelos entrenados (se regeneran con el notebook 02) ---
+models/*
+!models/README.md
+*.joblib
+*.pkl
+
+# --- Power BI: el .pbix y la caché del .pbip incrustan los datos importados ---
+*.pbix
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# --- Entornos virtuales ---
+.venv/
+venv/
+env/
+.conda/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# --- Secretos y credenciales ---
+.env
+.env.*
+*.pem
+*.key
+secrets*
+credentials*
+kaggle.json
+
+# --- Sistema / editores ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+*.tmp
+~$*

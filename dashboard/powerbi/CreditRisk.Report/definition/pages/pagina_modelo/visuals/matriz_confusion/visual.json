@@ -1,0 +1,109 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/1.0.0/schema.json",
+  "name": "matriz_confusion",
+  "position": {
+    "x": 550,
+    "y": 462,
+    "z": 10000,
+    "width": 330,
+    "height": 250,
+    "tabOrder": 10000
+  },
+  "visual": {
+    "visualType": "pivotTable",
+    "query": {
+      "queryState": {
+        "Rows": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "datos_dashboard"
+                    }
+                  },
+                  "Property": "estado_mora"
+                }
+              },
+              "queryRef": "datos_dashboard.estado_mora",
+              "nativeQueryRef": "estado_mora",
+              "displayName": "Real"
+            }
+          ]
+        },
+        "Columns": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "datos_dashboard"
+                    }
+                  },
+                  "Property": "alerta_modelo"
+                }
+              },
+              "queryRef": "datos_dashboard.alerta_modelo",
+              "nativeQueryRef": "alerta_modelo"
+            }
+          ]
+        },
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Medidas"
+                    }
+                  },
+                  "Property": "Clientes Evaluados"
+                }
+              },
+              "queryRef": "_Medidas.Clientes Evaluados",
+              "nativeQueryRef": "Clientes Evaluados",
+              "displayName": "Clientes"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Matriz de confusión'"
+                }
+              }
+            },
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#1B2A41'"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
